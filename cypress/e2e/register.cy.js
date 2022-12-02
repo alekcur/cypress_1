@@ -1,5 +1,8 @@
 /// <reference types="Cypress" />
 
+const Locators = require("../fixtures/{} Locators.json");
+
+
 describe("registration test", () => {
     function makeId(length) {
         var result = "";
@@ -17,14 +20,15 @@ describe("registration test", () => {
 
     it("register with valid data", () => {
         cy.visit("/")
-        cy.get("a[href='/register']").click();
-        cy.get("#first-name").type("Aleksandar");
-        cy.get("#last-name").type("Curic");
-        cy.get("#email").type(email);
-        cy.get("#password").type("Qwerty123!");
-        cy.get("#password-confirmation").type("Qwerty123!");
-        cy.get('[type="checkbox"]').check();
-        cy.get("button").click();
+        cy.get(Locators.Register.registerButton).click();
+        cy.get(Locators.Register.firstNameInputField).type("Aleksandar");
+        cy.get(Locators.Register.lastNameInputField).type("Curic");
+        cy.get(Locators.SharedElements.emailInput).type(email);
+        cy.get(Locators.SharedElements.passwordInput).type("Qwerty123!");
+        cy.get(Locators.Register.confirmedPasswordInputField).type("Qwerty123!");
+        cy.get(Locators.Register.checkbox).check();
+        cy.get(Locators.SharedElements.submitButton).click();
+
         cy.url().should("not.include", "/register");
     });
 });

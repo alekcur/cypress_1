@@ -1,16 +1,16 @@
 /// <reference types="Cypress"/>
 
+const Locators = require("../fixtures/{} Locators.json");
+
+
 describe( "login test", () => {
     it("login with valid credentials", () => {
       cy.visit("/");
-      // cy.get('a[href="/login"]');
-      cy.get('a[class="nav-link nav-buttons"]').first().click();
-      // cy.get('input[id="email"]');
-      cy.get("#email").type("zutirahatlic@gmail.com");
-      cy.get("#password").type("terminator007");
-      cy.get("button").click();
-      
-    });
+      cy.get(Locators.Login.loginButton).click();
+      cy.get(Locators.Login.emailInput).type("zutirahatlic@gmail.com");
+      cy.get(Locators.Login.passwordInput).type("terminator007");
+      cy.get(Locators.Login.submitButton).click();
+      });
     it("logout", () => {
       // cy.wait(500);
 
