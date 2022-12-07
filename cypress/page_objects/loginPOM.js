@@ -15,6 +15,14 @@ class LoginPage {
         return cy.get("button");
     }
 
+    get alertMessage() {
+        return cy.get(".alert");
+    }
+
+    get loginHeading() {
+        return cy.get("h1");
+    }
+    
     login(email, password) {
         this.emailInput.type(email);
         this.passwordInput.type(password);
@@ -22,4 +30,4 @@ class LoginPage {
     }
 }
 
-export const loginPage = new loginPage();
+export const loginPage = new LoginPage();
