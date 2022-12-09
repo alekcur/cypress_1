@@ -26,4 +26,4 @@ class CreateGalleryPage {
 
 }
 
-export const createGalleryPage = new LoginPage();
+export const createGalleryPage = new CreateGalleryPage();
