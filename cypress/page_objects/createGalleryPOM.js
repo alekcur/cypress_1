@@ -1,7 +1,8 @@
 class CreateGalleryPage {
 
+    
     get createGalleryButton() {
-        return cy.get("a[href='/create']")
+        return cy.get("a[href='/create']");
     }
 
     get createGalleryTitle() {

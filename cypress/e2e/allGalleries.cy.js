@@ -34,14 +34,15 @@ describe("all galleries test", () => {
     });
 
     it("all galleries loaded", () => {
+        cy.reload();
         allGalleriesPage.singleGallery.should("have.length", 10);
         allGalleriesPage.galleryImage.should("have.length", 10);
     });
 
     it("redirect to single gallery", () => {
-        allGalleriesPage.singleGallery.first().find("a").click();
+        allGalleriesPage.singleGallery.first().find("a").first().click();
         allGalleriesPage.allGalleriesHeading.should(
-            "not.have.text,
+            "not.have.text",
             "All Galleries"
         );
         cy.url().should("include", "/galleries");
